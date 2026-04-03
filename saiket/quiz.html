@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz App</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f2f2f2;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .quiz-box {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+        margin: auto;
+    }
+
+    button {
+        margin-top: 10px;
+        padding: 10px;
+        background: #a8af4c;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #45a049;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="quiz-box">
+    <h2 id="question">Question here</h2>
+
+    <div id="options"></div>
+
+    <button onclick="nextQuestion()">Next</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+
+const quiz = [
+    {
+        question: "What does HTML stand for?",
+        options: ["Hyper Text Markup Language", "High Text Machine Language", "Hyper Tool Multi Language"],
+        answer: 0
+    },
+    {
+        question: "Which language is used for styling?",
+        options: ["HTML", "CSS", "Python"],
+        answer: 1
+    },
+    {
+        question: "Which is a JavaScript framework?",
+        options: ["React", "HTML", "SQL"],
+        answer: 0
+    },
+    {
+        question: "Which tag is used for images in HTML?",
+        options: ["&lt;img&gt;", "&lt;image&gt;", "&lt;pic&gt;"],
+        answer: 0
+    },
+    {
+        question: "Which property is used to change text color in CSS?",
+        options: ["font-color", "text-color", "color"],
+        answer: 2
+    },
+    {
+        question: "Which symbol is used for comments in JavaScript?",
+        options: ["//", "<!-- -->", "#"],
+        answer: 0
+    },
+    {
+        question: "Which HTML tag is used for links?",
+        options: ["&lt;a&gt;", "&lt;link&gt;", "&lt;href&gt;"],
+        answer: 0
+    },
+    {
+        question: "Which CSS property controls layout in grid system?",
+        options: ["display", "position", "float"],
+        answer: 0
+    }
+];
+
+let current = 0;
+let score = 0;
+
+function loadQuestion() {
+    document.getElementById("question").innerText = quiz[current].question;
+
+    let optionsHTML = "";
+    quiz[current].options.forEach((opt, index) => {
+        optionsHTML += `
+            <div>
+                <input type="radio" name="option" value="${index}"> ${opt}
+            </div>
+        `;
+    });
+
+    document.getElementById("options").innerHTML = optionsHTML;
+}
+
+function nextQuestion() {
+    let selected = document.querySelector('input[name="option"]:checked');
+
+    if (!selected) {
+        alert("Please select an answer!");
+        return;
+    }
+
+    if (parseInt(selected.value) === quiz[current].answer) {
+        score++;
+    }
+
+    current++;
+
+    if (current < quiz.length) {
+        loadQuestion();
+    } else {
+        document.querySelector(".quiz-box").innerHTML =
+            `<h2>Your Score: ${score}/${quiz.length}</h2>`;
+    }
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>

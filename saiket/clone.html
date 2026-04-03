@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Headphones Landing Page</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Header */
+    header {
+        background: #111;
+        color: white;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav a {
+        color: white;
+        margin: 0 10px;
+        text-decoration: none;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: #4CAF50;
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .hero button {
+        padding: 10px 20px;
+        margin-top: 10px;
+        border: none;
+        background: white;
+        color: #4CAF50;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    /* Product Section */
+    .product {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .product img {
+        width: 220px;
+    }
+
+    /* Footer */
+    footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+    <h2>SoundX 🎧</h2>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>Experience Pure Sound 🎶</h1>
+    <p>High quality wireless headphones for music lovers</p>
+    <button onclick="buyNow()">Buy Now</button>
+</section>
+
+<!-- Product Section -->
+<section class="product">
+    <h2> Headphones 🎧</h2>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRamLnwDelASvv7zQNLkPgMHnJGZeZZi6j96w&s" alt="Headphones">
+    <p>Enjoy deep bass, clear sound, and long battery life.</p>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2026 SoundX</p>
+</footer>
+
+<script>
+function buyNow() {
+    alert("Headphones added to cart 🎧");
+}
+</script>
+
+</body>
+</html>
